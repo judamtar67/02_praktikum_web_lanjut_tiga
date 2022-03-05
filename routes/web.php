@@ -22,7 +22,7 @@ Route::prefix('category')->group(function () {
     Route::redirect('/kids-songs', 'https://www.educastudio.com/category/kolak-kids-songs');
 });
 
-Route::get('/news/{id}', function () {
+Route::get('/news/{id}', function ($id) {
     return redirect()->route('News');
 });
 Route::get('/newscovid/{id}', function ($id) {
