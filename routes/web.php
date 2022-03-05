@@ -22,15 +22,15 @@ Route::prefix('category')->group(function () {
     Route::redirect('/kids-songs', 'https://www.educastudio.com/category/kolak-kids-songs');
 });
 
-Route::get('/news/{id}', function ($id=1) {
+Route::get('/news/{id}', function () {
     return redirect()->route('News');
 });
-Route::get('/news/{id}', function ($id=2) {
+Route::get('/newscovid/{id}', function ($id) {
     return redirect()->route('News2');
 });
 
-Route::redirect('/', 'https://www.educastudio.com/news')->name('News');
-Route::redirect('/', 'https://www.educastudio.com/news/educa-studio-berbagi-untuk-warga-sekitar-terdampak-covid-19')
+Route::redirect('/redirect-1', 'https://www.educastudio.com/news')->name('News');
+Route::redirect('/redirect-2', 'https://www.educastudio.com/news/educa-studio-berbagi-untuk-warga-sekitar-terdampak-covid-19')
 ->name('News2');
 
 Route::prefix('program')->group(function () {
@@ -41,6 +41,7 @@ Route::prefix('program')->group(function () {
 
 Route::redirect('about-us', 'https://www.educastudio.com/about-us');
 
-Route::resource('Contact', App\Htttp\Controllers\ContactController::class)->only([
+Route::resource('contact', App\Http\Controllers\ContactController::class)->only([
     'index'
 ]);
+Route::redirect('/redirect-3', 'https://www.educastudio.com/contact-us')->name('Contact');
